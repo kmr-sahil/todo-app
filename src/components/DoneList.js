@@ -7,10 +7,11 @@ export default function DoneList(props) {
       }
     
       return (
-        <div className={styles.todoitem} style={{opacity: '70%'}}>
+        <div className={styles.todoitem} style={{opacity: '80%'}}>
+          <button className={styles.doneBtn}><i className="fa-solid fa-circle-check"></i></button>
             <h3 className={styles.task}><s style={{background: 'transparent'}}>{props.todoItem.name}</s></h3>
-            <button className={styles.doneBtndlist}><i class="fa-solid fa-circle-check"></i></button>
-            <button onClick={handleDelete} className={styles.doneBtndlist}><i class="fa-solid fa-trash-can"></i></button>
+            <button disabled style={{opacity: "0%"}} className={styles.doneBtn}><i className="fa-solid fa-pen-to-square"></i></button>
+            <button onClick={handleDelete} className={styles.doneBtn}><i className="fa-solid fa-trash-can"></i></button>
         </div>
       )
 }
