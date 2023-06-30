@@ -1,13 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600&display=swap');
 *{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: sans-serif;
+    font-family: 'Rubik', sans-serif;
     
 }
 
 body {
-    background-color: var(--primary-color);
+    height: 100vh;
+    background: var(--primary-color);
+    overflow-x: hidden;
 }
 
 ::-webkit-scrollbar {
@@ -30,33 +33,45 @@ body {
 }
 
 :root {
-    --primary-color: #5C469C;
-    --secondary-color: #0C134F;
-    --text-color: #D4ADFC;
+    --primary-color: #FFE6C7;
+    --secondary-color: #FF6000;
+    --text-color: #2D2B2B;
 }
 
 .darktheme {
-    --primary-color: #FEFF86;
-    --secondary-color: #B0DAFF;
-    --text-color: #146C94;
+    --primary-color: #2D2B2B;
+    --secondary-color: #FF6000;
+    --text-color: #FFE6C7;
 }
 
 .header {
-    padding-top: 25px;
-    padding-inline: 10%;
-    width: 100%;
-    height: 80px;
-    background-color: var(--secondary-color);
-    color: var(--text-color);
-    border-radius: 0px 0px 25px 25px;
-    background: var(--secondary-color);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.355);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    border: 1px solid var(--primary-color);
+    margin: 20px auto 0px;
+    width: 945px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    border: 2px solid var(--text-color);
+    border-radius: 50px;
+    padding: 10px;
+    justify-content: space-between;
+    color: var(--text-color);
+}
+
+.headerText{
+    font-size: 20px;
+}
+
+.avatar{
+    background-color: var(--text-color);
+    background-clip: content-box;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+}
+
+.avatar > img {
+    width: 60px;
+    padding-bottom: 10px;
+    padding-right: 10px;
 }
 
 .todoform {
@@ -67,36 +82,34 @@ body {
 }
 
 .createBox {
-    margin: 20px 0;
-    width: 80%;
-    border-radius: 25px;
-    height: 50px;
+    margin: 30px auto;
+    padding: 0 0px;
     display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
+    gap: 25px;
     align-items: center;
     justify-content:space-between;
 }
 
 .inp {
-    outline: none;
+    outline: solid 2px var(--secondary-color);
     padding-left: 20px;
-    width: 85%;
-    height: 50px;
-    border-radius: 25px 0px 0px 25px;
+    width: 637px;
+    height: 60px;
+    border-radius: 15px;
     display: inline-block;
     border-color: transparent;
-    background: var(--secondary-color);
+    background-color: transparent;
     color: var(--text-color);
 }
 
 .btn {
-    border-radius: 0px 25px 25px 0px;
-    width: 15%;
+    border-radius: 15px;
+    width: 60px;
     display: inline-block;
-    height: 50px;
+    height: 60px;
+    outline: solid 2px var(--secondary-color);
     border-color: transparent;
-    background: var(--text-color);
+    background: transparent;
     color: var(--secondary-color);
     font-size: 1rem;
     font-weight: bolder;
@@ -105,58 +118,191 @@ body {
 .todoitem{
 
     margin: 20px 0;
-    width: 70%;
-    border-radius: 25px;
-    border:solid 3px var(--secondary-color);
-    height: 80px;
+    padding: 25px;
+    width: 620px;
+    border-radius: 15px;
+    height: 60px;
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
     align-content: center;
-    justify-content:space-evenly;
-    background: var(--secondary-color);
-    color: var(--text-color);
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 44px;
+    background: var(--text-color);
+    color: var(--primary-color);
+    box-shadow: 0px 2px 15px -3px var(--secondary-color) ;
+}
+
+.pendinglist{
+    margin: 30px 0;
 }
 
 .task{
-    
-    padding-inline: 5%;
-    width: 80%;
-    border-radius: 25px 0px 0px 25px;
+    width: 375px;
+    font-size: 1rem;
+    font-weight: 500;
     display: inline-block;
     border-color: transparent;
     background: transparent;
 }
 
-.doneBtndlist {
-    color: var(--text-color);
-    border-radius: 0px 25px 25px 0px;
-    width: 7.5%;
-    display: inline-block;
-    border-color: transparent;
-    background-color: transparent;
-}
-
 .doneBtn {
-    color: var(--text-color);
-    border-radius: 0px 25px 25px 0px;
-    width: 5%;
+    color: var(--primary-color);
+    height: 1.25rem;
     display: inline-block;
     border-color: transparent;
     background: transparent;
 }
 
 @media screen and (max-width: 991px) {
+    .header {
+        width: 655px;
+    }
+
+    .avatar{
+        width: 40px;
+        height: 40px;
+    }
+
+    .avatar > img {
+        width: 50px;
+        padding-bottom: 10px;
+        padding-right: 10px;
+    }
     
-    
+    .inp{
+        width: 500px;
+    }
+
+    .task{
+        width: 310px;
+    }
+
+    .todoitem{
+        width: 525px;
+        padding: 0 20px;
+        gap: 40px;
+    }
 }
 
 @media screen and (max-width: 767px) {
-   
+    .header {
+        width: 450px;
+    }
+
+    ::placeholder {
+        font-size: 10px;
+    }
+
+    .headerText{
+        font-size: 15px;
+    }
+
+    .avatar{
+        width: 35px;
+        height: 35px;
+    }
+
+    .avatar > img {
+        width: 45px;
+        padding-bottom: 10px;
+        padding-right: 10px;
+    }
+
+    .createBox{
+        gap: 20px;
+    }
+    
+    .inp{
+        width: 320px;
+        height: 50px;
+    }
+
+    .btn{
+        width: 50px;
+        height: 50px;
+    }
+
+    .task{
+        width: 200px;
+        font-size: 0.8rem;
+    }
+
+    .doneBtn{
+        height: 1rem;
+    }
+
+    .todoitem{
+        width: 350px;
+        padding: 0 20px;
+        gap: 20px;
+    }
    
 }
 
 @media screen and (max-width: 479px) {
-   
+    .header {
+        width: 315px;
+    }
+
+    ::placeholder {
+        font-size: 9px;
+    }
+
+    .headerText{
+        font-size: 12px;
+    }
+
+    .header > button {
+        padding-bottom: 15px;
+        padding-right: 5px !important; 
+    }
+
+    .avatar{
+        width: 25px;
+        height: 25px;
+    }
+
+    .avatar > img {
+        width: 35px;
+        padding-bottom: 10px;
+        padding-right: 10px;
+    }
+
+    .createBox{
+        margin: 25px auto;
+        gap: 10px;
+    }
+    
+    .inp{
+        width: 250px;
+        height: 40px;
+    }
+
+    .btn{
+        width: 40px;
+        height: 40px;
+    }
+
+    .task{
+        width: 180px;
+        font-size: 0.7rem;
+    }
+
+    .doneBtn{
+        height: 0.6rem;
+        padding-bottom: 15px;
+    }
+
+    .todoitem{
+        width: 295px;
+        height: 50px;
+        padding: 0 10px;
+        gap: 15px;
+    }
+
+    .pendinglist{
+        margin: 25px 0;
+    }
    
 }
