@@ -10,7 +10,7 @@ export default function Create() {
     const [todoList, setTodoList] = useState([])
     const [doneList, setDoneList] = useState([])
     const [editTodo, setEditTodo] = useState("");
-    const [btnText, setBtnText] = useState("Add")
+    const [btnText, setBtnText] = useState(<i className="fa-solid fa-plus"></i>)
 
 
     const handleChange = (event) => {
@@ -35,7 +35,7 @@ export default function Create() {
         });
         setTodoList(updatedTodoList);
         setEditTodo(null);
-        setBtnText("Add")
+        setBtnText(<i className="fa-solid fa-plus"></i>)
       } else {
         // add new todo
         setI(i + 1);
@@ -49,15 +49,19 @@ export default function Create() {
               <input className={styles.inp} type="text" onChange={handleChange} value={todo} placeholder='add Todo List'/>
               <button className={styles.btn} type="submit" onClick={handleButton} >{btnText}</button>
           </form>
-          <p style={{fontSize: '1rem', fontWeight: 'bold',alignSelf: 'flex-start',paddingInline: '16%'}}>{todoList.length === 0 ? '': `You have ${todoList.length} tasks left`}</p>
+          <div className={styles.pendinglist}>
+          <p style={{fontSize: '0.7rem',  paddingLeft: '20px', color: 'var(--text-color)'}}>{todoList.length === 0 ? '': `You have ${todoList.length} tasks left`}</p>
         {todoList.map((item)=>(
         <TodoList todoList={todoList} todoItem={item} setTodo={setTodo} setTodoList={setTodoList} setDoneList={setDoneList} doneList={doneList} setEditTodo={setEditTodo} setBtnText={setBtnText}/>
         ))}
-          <p style={{fontSize: '1rem', fontWeight: 'bold',alignSelf: 'flex-start',paddingInline: '16%', margin: '20px 0'}}>{doneList.length === 0 ? '': `You have completed ${doneList.length} tasks`}</p>
+        </div>
+        <div>
+          <p style={{fontSize: '0.7rem', paddingLeft: '20px', color: 'var(--text-color)'}}>{doneList.length === 0 ? '': `You have completed ${doneList.length} tasks`}</p>
           
           {doneList.map((item)=>(
         <DoneList  todoItem={item} setDoneList={setDoneList} doneList={doneList}/>
         ))}
+        </div>
     </div>
   )
 }
