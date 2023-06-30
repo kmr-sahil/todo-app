@@ -107,10 +107,10 @@ body {
     width: 60px;
     display: inline-block;
     height: 60px;
-    outline: solid 2px var(--secondary-color);
+    outline: solid 2px var(--text-color);
     border-color: transparent;
     background: transparent;
-    color: var(--secondary-color);
+    color: var(--text-color);
     font-size: 1rem;
     font-weight: bolder;
 }
