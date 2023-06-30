@@ -7,7 +7,7 @@ export default function TodoList(props) {
   const handleEdit = () => {
     props.setEditTodo(props.todoItem);
     props.setTodo(props.todoItem.name);
-    props.setBtnText("Update")
+    props.setBtnText(<i className="fa-solid fa-angles-up"></i>)
   };
   
   const handleDone = () => {
@@ -21,10 +21,11 @@ export default function TodoList(props) {
 
   return (
     <div className={styles.todoitem}>
+      <button onClick={handleDone} className={styles.doneBtn}><i className="fa-regular fa-circle"></i></button>
         <h3 className={styles.task}>{props.todoItem.name}</h3>
-        <button onClick={handleDone} className={styles.doneBtn}><i class="fa-regular fa-circle"></i></button>
-        <button onClick={handleDelete} className={styles.doneBtn}><i class="fa-solid fa-trash-can"></i></button>
-        <button onClick={handleEdit} className={styles.doneBtn}><i class="fa-solid fa-pen-to-square"></i></button>  
+        <button onClick={handleEdit} className={styles.doneBtn}><i className="fa-solid fa-pen-to-square"></i></button> 
+        <button onClick={handleDelete} className={styles.doneBtn}><i className="fa-solid fa-trash-can"></i></button>
+         
     </div>
   )
 }
