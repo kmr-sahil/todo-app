@@ -19,10 +19,15 @@ export default function Navbar() {
   return (
     <React.Fragment>
       <div className={styles.header}>
-        <h1>Todo app</h1>
-        <button id="dark" className={styles.doneBtn} onClick={handlemode}><i class="fa-regular fa-sun"></i></button>
+        <div style={{display: 'flex', alignItems: 'center', gap: '20px'}}>
+          <div className={styles.avatar} >
+          <img src={require("./avatarr.png")} alt="img" />
+          </div>
+          <h3 className={styles.headerText}>lets ⚔️ strike off some todos</h3>
+        </div>
+        <button id="dark" style={{paddingRight: '20px', color: 'var(--text-color)'}} className={styles.doneBtn} onClick={handlemode}><i className="fa-regular fa-sun"></i></button>
       </div>
-      
+  
     </React.Fragment>
   )
 }
